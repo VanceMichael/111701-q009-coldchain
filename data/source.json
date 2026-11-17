@@ -1,0 +1,8 @@
+{
+  "source": "cold-chain-sample",
+  "observedAt": "2026-11-17T08:00:00.000Z",
+  "items": [
+    {"id": "warehouse-A", "label": "冷链仓温度读数甲", "state": "active", "revision": 1, "temperatureC": 3.8, "doorState": "closed"},
+    {"id": "warehouse-B", "label": "冷链仓温度读数乙", "state": "pending", "revision": 1, "temperatureC": 4.2, "doorState": "open"}
+  ]
+}
