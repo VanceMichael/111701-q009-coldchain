@@ -1,4 +1,5 @@
-export function normalizePage(page) {
+export function normalizePage(page, { defaultObservedAt = null } = {}) {
+  const pageObservedAt = page.observedAt ?? defaultObservedAt ?? null;
   return page.items.map((item) => {
     if (!item.id || !item.label || !item.state) {
       throw new Error('来源记录缺少 id、label 或 state');
@@ -9,7 +10,9 @@ export function normalizePage(page) {
       name: String(item.label).trim(),
       state: String(item.state),
       revision: Number(item.revision ?? 0),
-      observedAt: page.observedAt ?? null,
+      observedAt: item.observedAt ?? pageObservedAt,
+      temperatureC: item.temperatureC ?? null,
+      doorState: item.doorState ?? null,
     };
   });
 }
